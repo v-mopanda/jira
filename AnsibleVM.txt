@@ -1,0 +1,66 @@
+Az Subscription ID: c00d16c7-6c1f-4c03-9be1-6934a4c49682
+
+az ad sp create-for-rbac --name "MyAnsibleService" --role Contributor --scopes /subscriptions/c00d16c7-6c1f-4c03-9be1-6934a4c49682
+
+Ansible Service
+{
+  "appId": "fa1a5ca4-b3ad-483d-aa6a-16106bf775cb",
+  "displayName": "KunuAnsibleService",
+  "password": "qIj8Q~jzqJSuzp78dPwDf9zlCIZrpqhMbfG9cdlk",
+  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
+
+az group create --name AnsibleResource --location eastus
+
+az vm create --resource-group AnsibleResource --name kunuansible --image OpenLogic:CentOS:7.7:latest --admin-username monalisa --admin-password 24T8Q~1EmTPJikI3fQmE2vIoZYlEl0ZV2TAXQbnn
+
+Public IP Address: 52.172.252.182
+
+Private Key:
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpQIBAAKCAQEAxsZs172ril5RUSyC6X6zga8zgtO4UJzoK0ooWNbtgK1L0B20
+8d3kWXgdlaJwJAoBmclXEEBbyuJ9gTg5lmHd8tjSMUJuvHEMrGmImsOhGaQiZlTz
++V4qqPIAZm5TWA3LYLbWEJm0gijQZ7AgetToBvlQG8V8FiYCCvdXnN4OUK5HmFb1
+W7atmRUOhPXYJikkGVSoyxCe8+v4noGKvfjsUgERivGHdGgrvwzjQWmfAOfEcl/O
+LapCZTJab/dYwC+b5JDNLXYKfk+MR9waWmhNEvqUjNgOr7H2mhUSSIUd//T3tHqq
+Luka6LR5DH8c4vno9br3G6a0hGpj+syRj3aJkQIDAQABAoIBAF9UtMi3T3j6CRfc
+OCDRwjeVFihNcB1BU1vHohgRZDCNbEmwpaJGIAkEwXONRykRn3jpBhdmNl/URgre
+M0g7QZ4BfLVhPgikU0axCnHnFvFcNZ9MaQIUtnL2NVjq2o/ldb+5kGq/vMGb32+L
+GdivGWSW12OqT/uzWNF3lI5INSddxbshTxDyl6xOIyEeiQAnk+HVUHy96+Q7/5RG
+RU/lDha1u4qU3fsnJ8+Oyav0z7jrgw+6PKO9M+gR9Gp/Txgj9/g4g/a3aXUKrpKs
+QBfSjEstH9KxgGFv3i0cna8/oNqL5tjg4EoXQV1dHVAmTCoedQ0h6qBcWpkwUclL
+surGl5ECgYEA6UOX9X4vtQqpe6JVJgv7KNqa7j9s1WrADcSg9saEuCR7yuYjCiHn
+ihvGfjP3HV+TMkGySafR765nJhHIofGLfigK0d9a8BFkOYwK0XiyICVsATRCZoDT
+xJEtByT+SvgbHbYQOVhOPR6G8d0gEzjRxOJacFeVKO6Q9AWJOD07h/UCgYEA2iZD
+ZFqmm8eKmh2jw+z4m6uYhQZ+NcNTlY5mf6LC03GSc8WNubdLJxwAN5DV7tBS93gW
+1d2KqCzrVw+pE75/XaW2wm+gfVc2Tr1kEpiIhdbQLIslIKEWxcYg8eYpNww14HAr
+LbV70Ih4OhV/kMzbWaGaLW5imEEYUMp7haQ4Za0CgYEAoY1D2C09w0gQG2VRTZls
+qF3GgY0Bxkk5nA97X44b6yCxb9O1ntXec0NLVKqO0hQYcO0ZGnQVLMd//tjAOJB+
+iLAY1kO3yp5w6H46G9tYmnTweWEFP9KnV/Mn2VPgnnF47jniwKSNAz16PlZkWYu3
+lIEkG7w8vO2FDMwsvfuCmGUCgYEAzzVNCgN5Abr1khHZPf7W3baONrzGIPcZa5NJ
+FK9a81CLVWAukFrkDY/xPNZb/mzugZUVy6qVS8zu9VEwvkpR3HfNMr6o6KVwNjZ6
+2Zb9BnPWZJj+eRHJ+a2KGXsPZvQ4MKkaul4J7zfRSwqkkrujFm4DbmfNSuV53TOX
+RIeJ8jkCgYEAjPXsyRBJK4Ijy1eg4QyUC9cf4BcHex3pRPfKcUj5AIfYTEFbWRGH
+LZpToB8JQZjGYtBw4v/UrAc1CGqizlHCoqHGc0uiQ0d29wLY91Ofnaiy3e5Om3+h
+RJBEo+lXHNikrvAIiUb6eQLmUT32b6+F6Ar0uAHN1GXiM5JTIG4e8zk=
+-----END RSA PRIVATE KEY-----
+
+
+https://vstsagentpackage.azureedge.net/agent/2.217.2/vsts-agent-linux-x64-2.217.2.tar.gz
+
+PAT: 5jbeonrbjdepvhaxvue3hestbaadlewo46hrq3tokjpfw5d7fisq
+
+# Az Devops install-service.yml
+
+---
+  -hosts: all
+   become: true
+   tasks:
+     - name: Installing services
+       yum:
+        name: 
+         - httpd
+         - php
+        state: present
+     - name: Ensure apache starts
+       service: name=httpd state-started 
