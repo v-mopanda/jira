@@ -1,0 +1,20 @@
+PAT: 5jbeonrbjdepvhaxvue3hestbaadlewo46hrq3tokjpfw5d7fisq
+
+Az Subscription ID: c00d16c7-6c1f-4c03-9be1-6934a4c49682
+
+az ad sp create-for-rbac --name "KuchBhi" --role Contributor --scopes /subscriptions/c00d16c7-6c1f-4c03-9be1-6934a4c49682
+
+Ansible Service 
+{
+  "appId": "0e851d92-7a32-452a-adaf-842002d90f01",
+  "displayName": "KuchBhi",
+  "password": "8418Q~aUnj8bByc4akOusQ7hQ3gp0mHOKbMcIbE.",
+  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
+
+az group create --name RmdevAnsible --location eastus
+
+az vm create --resource-group RmdevAnsible --name HundredAnsible --image OpenLogic:CentOS:7.7:latest --admin-username kunupanda --admin-password 8418Q~aUnj8bByc4akOusQ7hQ3gp0mHOKbMcIbE.
+
+public IP: 
+

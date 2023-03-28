@@ -1,0 +1,15 @@
+1. Sending task request for task cc4bebc6-9d8c-4539-af0a-a5a7f84d01c7
+
+2. Publish of the message to messagebus : azdeployertriggerqueue succeeded for planId : a3697b30-dade-4a47-81b8-f294a7608d0b, jobId : 9126dea8-eabe-4606-81d2-37844836ab4d, taskInstanceId : cc4bebc6-9d8c-4539-af0a-a5a7f84d01c7, ownerId: 15372741, definitionId: 3394
+
+3. ServerJob 9126dea8-eabe-4606-81d2-37844836ab4d - Successfully sent the task request for task cc4bebc6-9d8c-4539-af0a-a5a7f84d01c7
+
+4. ServerTask 9126dea8-eabe-4606-81d2-37844836ab4d/cc4bebc6-9d8c-4539-af0a-a5a7f84d01c7 - Waiting for event TaskAssigned with timeout of Nil
+
+5. ServerJob 9126dea8-eabe-4606-81d2-37844836ab4d - Sent CancelTask notification to task cc4bebc6-9d8c-4539-af0a-a5a7f84d01c7
+
+6. Publish of the message to messagebus : azdeployertriggerqueue succeeded for planId : a3697b30-dade-4a47-81b8-f294a7608d0b, jobId : 9126dea8-eabe-4606-81d2-37844836ab4d, taskInstanceId : cc4bebc6-9d8c-4539-af0a-a5a7f84d01c7, ownerId: 15372741, definitionId: 3394
+
+7. ServerTask 9126dea8-eabe-4606-81d2-37844836ab4d/cc4bebc6-9d8c-4539-af0a-a5a7f84d01c7 - Received task started notification
+
+8. ServerTask 9126dea8-eabe-4606-81d2-37844836ab4d/cc4bebc6-9d8c-4539-af0a-a5a7f84d01c7 - Received task completed notification with result Canceled
